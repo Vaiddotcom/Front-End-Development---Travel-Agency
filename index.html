@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to WanderWorld</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Bootstrap for Modals -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="brand">
+        <img src="background.jpg" alt="Brand Logo" class="logo" />
+        <span class="brand-name">WanderWorld</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Book</a></li>
+        <li class="dropdown">
+          <a href="#">Packages ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">United States</a></li>
+            <li><a href="#">India</a></li>
+            <li><a href="#">France</a></li>
+            <li><a href="#">Germany</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+
+      <div class="auth-buttons">
+        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Welcome to <span>WanderWorld</span></h2>
+      <h1>Visit <span id="country-name">India</span></h1>
+      <button class="book-btn">Book Now</button>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="booking-section">
+    <div class="booking-container">
+      <div class="booking-image">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Brand Image">
+      </div>
+
+      <div class="booking-form">
+        <h2>Book Your Trip</h2>
+        <form id="bookingForm" onsubmit="return validateBookingForm()">
+          <label for="destination">Where To:</label>
+          <select id="destination" required>
+            <option value="">--Select Place--</option>
+            <option value="India">India</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="USA">United States</option>
+            <option value="Japan">Japan</option>
+          </select>
+
+          <label for="persons">How Many Persons:</label>
+          <input type="number" id="persons" min="1" required placeholder="Enter number of persons">
+
+          <label for="start-date">Start Date:</label>
+          <input type="date" id="start-date" required>
+
+          <label for="end-date">End Date:</label>
+          <input type="date" id="end-date" required>
+
+          <label for="description">Description:</label>
+          <textarea id="description" minlength="50" maxlength="500" required placeholder="Enter your trip details (50–500 characters)..."></textarea>
+
+          <button type="submit" class="book-now-btn">Book Now</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages Section -->
+  <section class="packages">
+    <h2>Our Travel Packages</h2>
+    <div class="package-grid">
+      <div class="package-card"><img src="USA.jpeg"><h3>United States</h3><p>Visit New York, LA, and the Grand Canyon.</p><div class="package-info"><span>$1,200</span><span>⭐ 4.7</span></div><button>Book Now</button></div>
+      <div class="package-card"><img src="India.jpeg"><h3>India</h3><p>Experience the Taj Mahal and Kerala backwaters.</p><div class="package-info"><span>$950</span><span>⭐ 4.8</span></div><button>Book Now</button></div>
+      <div class="package-card"><img src="France.jpeg"><h3>France</h3><p>Romantic Paris, art museums, and wine regions.</p><div class="package-info"><span>$1,300</span><span>⭐ 4.9</span></div><button>Book Now</button></div>
+      <div class="package-card"><img src="Germany.jpeg"><h3>Germany</h3><p>Historic castles and scenic countryside.</p><div class="package-info"><span>$1,100</span><span>⭐ 4.6</span></div><button>Book Now</button></div>
+      <div class="package-card"><img src="Japan.jpeg"><h3>Japan</h3><p>Cherry blossoms, temples, and Tokyo nightlife.</p><div class="package-info"><span>$1,500</span><span>⭐ 4.8</span></div><button>Book Now</button></div>
+      <div class="package-card"><img src="Italy.jpeg"><h3>Italy</h3><p>Delicious food, ancient ruins, and art culture.</p><div class="package-info"><span>$1,250</span><span>⭐ 4.9</span></div><button>Book Now</button></div>
+      <div class="package-card"><img src="Australia.jpeg"><h3>Australia</h3><p>Beaches, coral reefs, and modern cities.</p><div class="package-info"><span>$1,400</span><span>⭐ 4.7</span></div><button>Book Now</button></div>
+      <div class="package-card"><img src="Maldives.jpeg"><h3>Maldives</h3><p>Luxury resorts and clear blue waters.</p><div class="package-info"><span>$2,000</span><span>⭐ 5.0</span></div><button>Book Now</button></div>
+      <div class="package-card"><img src="Dubai.jpeg"><h3>Dubai</h3><p>Modern skyscrapers, desert safaris, and shopping.</p><div class="package-info"><span>$1,600</span><span>⭐ 4.8</span></div><button>Book Now</button></div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">🏨 Affordable Hotels</div>
+      <div class="service-card">🍴 Food & Drinks</div>
+      <div class="service-card">🧭 Safety Guide</div>
+      <div class="service-card">🚗 Car Rentals</div>
+      <div class="service-card">✈️ Flight Booking</div>
+      <div class="service-card">📱 24/7 Support</div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery-section" id="gallery">
+    <h2>Our Travel Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Front_view_of_Statue_of_Liberty_%28cropped%29.jpg" alt="USA"></div>
+      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Taj_Mahal_%28Edited%29.jpeg" alt="India"></div>
+      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg" alt="France"></div>
+      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Brandenburger_Tor_abends.jpg" alt="Germany"></div>
+      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Tokyo_Tower_2023.jpg" alt="Japan"></div>
+      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Colosseo_2020.jpg" alt="Italy"></div>
+      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Sydney_Australia._%2821339175489%29.jpg" alt="Australia"></div>
+      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Mal%C3%A9_Maldives_%281%29.jpg" alt="Maldives"></div>
+      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/93/Burj_Khalifa.jpg/250px-Burj_Khalifa.jpg" alt="Dubai"></div>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80" alt="About Brand">
+      </div>
+      <div class="about-content"> 
+        <h2>About WanderWorld</h2> 
+        <p>Founded in 2024, <strong>WanderWorld</strong> was born from a passion for discovery and a belief that travel has the power to transform lives. From sun-kissed tropical islands to vibrant cosmopolitan cities, we’ve been crafting unforgettable travel experiences that inspire, connect, and rejuvenate.</p> 
+        <p>At WanderWorld, we believe that every journey should be as unique as the traveler. That’s why we collaborate with world-class hotels, trusted local guides, and experienced travel planners to curate personalized itineraries tailored to your interests, budget, and pace.</p> 
+        <p>Whether you crave thrilling adventures, serene getaways, or immersive cultural experiences, our mission is to make every trip effortless, safe, and truly inspiring.</p> 
+        <p>We handle the details — you create the memories. With WanderWorld by your side, the world is closer than you think.</p> 
+        <p><strong>Established:</strong> 2024<br> <strong>Headquarters:</strong> Dubai, United Arab Emirates<br> <strong>Contact:</strong> info@wanderworld.ae</p> 
+      </div> 
+    </section>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>WanderWorld</h2>
+        <p>Explore the world with us.</p>
+      </div>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 WanderWorld. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm" onsubmit="return validateLogin()">
+            <label>Email:</label>
+            <input type="email" id="loginEmail" required>
+            <label>Password:</label>
+            <input type="password" id="loginPassword" required>
+            <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
+          </form>
+          <p class="text-center mt-2">Don't have an account? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Register</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm" onsubmit="return validateRegister()">
+            <label>Full Name:</label>
+            <input type="text" id="regName" required>
+            <label>Contact:</label>
+            <input type="tel" id="regContact" required>
+            <label>Date of Birth:</label>
+            <input type="date" id="regDob" required>
+            <label>Email:</label>
+            <input type="email" id="regEmail" required>
+            <label>Password:</label>
+            <input type="password" id="regPassword" required>
+            <label>Gender:</label>
+            <select id="regGender" required>
+              <option value="">--Select--</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+            <button type="submit" class="btn btn-success w-100 mt-3">Register</button>
+          </form>
+          <p class="text-center mt-2">Already have an account? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

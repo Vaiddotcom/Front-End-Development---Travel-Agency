@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | WanderWorld</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <h2>Create Your Account</h2>
+    <form id="registerForm" onsubmit="return validateRegisterForm()">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" placeholder="Enter your full name">
+
+      <label for="contact">Contact</label>
+      <input type="text" id="contact" name="contact" placeholder="Enter your contact number">
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password">
+
+      <label>Gender</label>
+      <div class="gender-group">
+        <label><input type="radio" name="gender" value="Male"> Male</label>
+        <label><input type="radio" name="gender" value="Female"> Female</label>
+        <label><input type="radio" name="gender" value="Other"> Other</label>
+      </div>
+
+      <button type="submit" class="auth-btn">Register</button>
+
+      <p class="auth-link">Already have an account? <a href="login.html">Login here</a></p>
+    </form>
+  </div>
+
+  <script>
+    function validateRegisterForm() {
+      const name = document.getElementById("fullname").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+      const dob = document.getElementById("dob").value;
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const gender = document.querySelector('input[name="gender"]:checked');
+
+      if (!name || !contact || !dob || !email || !password || !gender) {
+        alert("All fields are required!");
+        return false;
+      }
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        alert("Please enter a valid email address!");
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long!");
+        return false;
+      }
+
+      if (!/^\d{7,15}$/.test(contact)) {
+        alert("Please enter a valid contact number!");
+        return false;
+      }
+
+      alert("Registration Successful!");
+      return true;
+    }
+  </script>
+</body>
+</html>
